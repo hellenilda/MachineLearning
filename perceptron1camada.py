@@ -29,10 +29,10 @@ def treinar():
 
 treinar()
 
-''' Verificando as saídas após
-calcular o peso correto (1.1)
-'''
-print(calculaSaida(entradas[0]))
-print(calculaSaida(entradas[1]))
-print(calculaSaida(entradas[2]))
-print(calculaSaida(entradas[3]))
+# ''' Verificando as saídas após
+# calcular o peso correto (1.1)
+# '''
+# print(calculaSaida(entradas[0]))
+# print(calculaSaida(entradas[1]))
+# print(calculaSaida(entradas[2]))
+# print(calculaSaida(entradas[3]))

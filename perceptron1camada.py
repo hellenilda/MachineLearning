@@ -1,19 +1,30 @@
 import numpy as np
 
-entradas = np.array([1, 7, 5])
-pesos = np.array([0.8, 0.1, 0])
-
-def soma(e, p):
-  return e.dot(p) # dot product / produto escalar
-
-s = soma(entradas, pesos)
+entradas = np.array([[0,0], [0,1], [1,0], [1,1]])
+saidas = np.array([0,0,0,1])
+pesos = np.array([0.0, 0.0])
+taxaAprendizagem = 0.1
 
 def stepFunction(soma):
   if (soma >= 1):
     return 1
   return 0
 
-r = stepFunction(s)
+def calculaSaida(registro):
+  s = registro.dot(pesos) # Equivale a: s += registro * pesos[i]
+  return stepFunction(s)
 
-print(f'Soma: {s}')
-print(f'Valor do perceptron: {r}')
+def treinar():
+  erroTotal = 1
+  while (erroTotal != 0):
+    erroTotal = 0
+    for i in range(len(saidas)):
+      saidaCalculada = calculaSaida(np.asarray(entradas[i]))
+      erro = abs(saidas[i] - saidaCalculada) # abs -> variável sem valor negativo
+      erroTotal += erro
+      for j in range(len(pesos)):
+        pesos[j] = pesos[j] + (taxaAprendizagem * entradas[i][j] * erro)
+        print(f'Peso atualizado: {pesos[j]:.1f}')
+    print(f'Total de erros: {str(erroTotal)}')
+
+treinar()

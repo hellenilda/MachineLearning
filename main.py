@@ -14,3 +14,17 @@ pesos0 = np.array([[-0.424, -0.740, -0.961],
                   [0.358, -0.577, -0.469]])
 
 pesos1 = np.array([[0.017],[-0.893],[0.148]])
+
+epocas = 100 # Quantidade de vezes p/ atualizar pesos (erro = 0)
+
+for j in range(epocas):
+  # Cálculos para encontrar os valores da camada oculta
+  camadaEntrada = entradas
+  somaSinapse0 = np.dot(camadaEntrada, pesos0)
+  camadaOculta = sigmoid(somaSinapse0)
+
+  # Cálculos para encontrar os valores de saída
+  somaSinapse1 = np.dot(camadaOculta, pesos1)
+  camadaSaida = sigmoid(somaSinapse1)
+
+  

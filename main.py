@@ -27,4 +27,7 @@ for j in range(epocas):
   somaSinapse1 = np.dot(camadaOculta, pesos1)
   camadaSaida = sigmoid(somaSinapse1)
 
-  
+  # Cálculo para encontrar o percentual de erro
+  erroCamadaSaida = saidas - camadaSaida
+  mediaAbsoluta = np.mean(np.abs(erroCamadaSaida))
+    # Percentual de acerto seria: 1 - mediaAbsoluta

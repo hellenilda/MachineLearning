@@ -1,13 +1,13 @@
 import numpy as np
 
 def sigmoid(soma):
-  return 1 / (1 + np.exp(soma))
+  return 1 / (1 + np.exp(-soma))
 
 def sigmoidDerivada(sig):
   return sig * (1 - sig)
 
 a = sigmoid(0.5)
-b = sigmoidDerivada(a) # Sobre o gradiente
+b = sigmoidDerivada(a) # Gradiente calculado
 
 entradas = np.array([[0,0],
                     [0,1],
@@ -19,7 +19,7 @@ saidas = np.array([[0],[1],[1],[0]])
 pesos0 = np.array([[-0.424, -0.740, -0.961],
                   [0.358, -0.577, -0.469]])
 
-pesos1 = np.array([[0.017],[-0.893],[0.148]])
+pesos1 = np.array([[-0.017],[-0.893],[0.148]])
 
 epocas = 10000 # Quantidade de vezes p/ atualizar pesos (erro = 0)
 taxaAprendizagem = 0.3
